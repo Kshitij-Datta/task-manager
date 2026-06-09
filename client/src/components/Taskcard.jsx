@@ -53,7 +53,6 @@ const Taskcard = ({ tasks, onDelete, onComplete, onEdit }) => {
               </div>
               <p className="text-gray-600 text-sm mb-4">{task.description}</p>
 
-              {/* Action Buttons */}
               <div className="flex gap-2 justify-end">
                 {task.status !== "completed" && (
                   <button

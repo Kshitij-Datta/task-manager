@@ -7,7 +7,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://urtaskmanager.vercel.app", "http://localhost:5173"],
+    origin: ["https://urtaskmanager.vercel.app"],
     credentials: true,
   }),
 );
