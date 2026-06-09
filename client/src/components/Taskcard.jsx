@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Taskcard = ({ tasks, onDelete, onComplete, onEdit }) => {
-  const [loadingId, setLoadingId] = useState(null); // Tracks which specific card is loading
+  const [loadingId, setLoadingId] = useState(null);
 
   const getStatusColor = (status) => {
     switch (status) {

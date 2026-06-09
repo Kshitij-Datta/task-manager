@@ -7,7 +7,6 @@ const Taskform = ({ onTaskAdded, editingTask, setEditingTask }) => {
   const [status, setStatus] = useState("pending");
   const [loading, setLoading] = useState(false);
 
-  // Populate form when Edit is clicked on a task card
   useEffect(() => {
     if (editingTask) {
       setTitle(editingTask.title);
@@ -29,7 +28,7 @@ const Taskform = ({ onTaskAdded, editingTask, setEditingTask }) => {
           description,
           status,
         });
-        setEditingTask(null); // Clear edit mode
+        setEditingTask(null);
       } else {
         // Create mode (POST)
         await api.post("/tasks", {
@@ -39,7 +38,6 @@ const Taskform = ({ onTaskAdded, editingTask, setEditingTask }) => {
         });
       }
 
-      // Clear form
       setTitle("");
       setDescription("");
       setStatus("pending");

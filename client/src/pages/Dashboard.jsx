@@ -12,7 +12,6 @@ const Dashboard = () => {
   const [editingTask, setEditingTask] = useState(null);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  // --- NEW STATES: Search and Filter ---
   const [searchQuery, setSearchQuery] = useState("");
   const [filterStatus, setFilterStatus] = useState("all");
 
@@ -58,7 +57,6 @@ const Dashboard = () => {
     }
   };
 
-  // --- NEW: Calculate Statistics ---
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(
     (task) => task.status === "completed",
@@ -68,7 +66,6 @@ const Dashboard = () => {
     (task) => task.status === "in progress" || task.status === "inProgress",
   ).length;
 
-  // --- NEW: Filter & Search Logic ---
   const filteredTasks = tasks.filter((task) => {
     const matchesSearch =
       task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -84,7 +81,6 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-8 font-sans">
       <div className="max-w-5xl mx-auto space-y-8">
-        {/* Header */}
         <div className="backdrop-blur-md bg-white/40 border border-white/50 p-6 rounded-2xl shadow-sm flex justify-between items-center">
           <h1 className="text-3xl font-bold text-gray-800">
             Welcome, {user?.name || "Developer"}
@@ -98,7 +94,6 @@ const Dashboard = () => {
           </button>
         </div>
 
-        {/* --- NEW UI: Statistics Section --- */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="backdrop-blur-xl bg-white/60 border border-white/50 p-4 rounded-xl shadow-sm text-center">
             <p className="text-gray-500 text-sm font-semibold">Total Tasks</p>
@@ -122,7 +117,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* --- NEW UI: Search & Filter Controls --- */}
         <div className="backdrop-blur-md bg-white/40 border border-white/50 p-4 rounded-2xl shadow-sm flex flex-col md:flex-row gap-4">
           <input
             type="text"
@@ -143,7 +137,6 @@ const Dashboard = () => {
           </select>
         </div>
 
-        {/* Layout Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-1">
             <Taskform
@@ -154,9 +147,7 @@ const Dashboard = () => {
           </div>
           <div className="md:col-span-2">
             <Taskcard
-              tasks={
-                filteredTasks
-              } /* <-- Passed filteredTasks instead of tasks */
+              tasks={filteredTasks}
               onDelete={deleteTask}
               onComplete={updateStatus}
               onEdit={setEditingTask}
