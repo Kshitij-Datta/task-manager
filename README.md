@@ -2,6 +2,9 @@
 
 A full-stack task management application built to help users organize, track, and manage their daily activities. This is a complete MERN stack application featuring secure user authentication, responsive UI, and seamless CRUD operations.
 
+vercel deployment : https://urtaskmanager.vercel.app/login
+render deployment : https://task-manager-m2sy.onrender.com
+
 ---
 
 ## ✨ Features
